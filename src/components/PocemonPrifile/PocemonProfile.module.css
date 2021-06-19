@@ -1,0 +1,127 @@
+.pocemonOutfit{
+    background:#F2F2F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pocemonImg{
+    width: 112px;
+    height: 112px;
+    overflow: hidden;
+    margin: 24px 0 20px;
+}
+
+.pocemonImg > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pocemonName{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+
+    margin-bottom: 24px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pocemonProperty{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-top: 16px;
+}
+
+
+.pocemonProperty::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+
+    height: 1px;
+    left: 0px;
+    bottom: -8px;
+    background: #F2F2F2;
+}
+
+.propertyName{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #201D2A;
+}
+
+.propertyValue{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    color: #201D2A;
+}
+
+
+.button{
+    font-family: 'Montserrat',sans-serif;
+    cursor: pointer;
+
+    width: 87%;
+
+    padding: 14px 68px;
+    margin: 48px auto 44px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 143%;
+    border-radius: 8px;
+}
+
+.buttonRemove{
+    color: #7EB57E;     
+    border: 2px solid #7EB57E;
+    background: transparent;
+    transition: all 0.3s linear;
+}
+.buttonRemove > span{
+    min-width: 171px;
+}
+.buttonRemove:active{
+    background: rgba(126, 181, 126, 0.1)
+}
+
+.buttonAdd{
+    background: #7EB57E;
+    color: #FFFFFF; 
+    border: 2px solid #7EB57E;
+    transition: all 0.3s linear;
+}
+.buttonAdd:active{
+    background: rgba(126, 181, 126, 0.6)
+}
+.buttonAdd > span{
+    min-width: 120px;
+}
+
+.buttonAdd > img {
+    margin-right: 12px;
+}
+

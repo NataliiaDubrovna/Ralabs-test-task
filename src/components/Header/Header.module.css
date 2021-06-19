@@ -1,0 +1,40 @@
+header{
+    padding: 14px 26px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+.header_logo {
+    /* min-width:21.4%; */
+    /* width: 24.4%; */
+    width :76.92px;
+    height :27.14px;
+    height: auto;
+}
+
+.header_logo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.like {
+    margin-left: 30%;
+
+    /* margin-left: 93px; */
+    /* width: 7.7%; */
+    width: 24px;
+    height: 24px;
+    /* height: auto; */
+    overflow: hidden;
+
+}
+
+.like > img{
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+}
