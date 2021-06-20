@@ -1,52 +1,101 @@
 import React from 'react'
 import s from './PocemonProfile.module.css'
 import Like from '../Like/Like'
-
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { changePath, loadFavorite } from '../../redux/homeReducer'
+import { useSelector } from 'react-redux'
 
 const PocemonProfile = () => {
+    const location = useLocation();
+    console.log(location);
+
+    const currentPokemon = location.state.pokemon;
+    const favorites = useSelector(state => state.homeReducer.favorite);
+    
+
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(changePath('/pokemonProfile'));
+    },[])
+
+    
+
+    const handleAddButton = () => {
+        if(localStorage.getItem('favorite')){
+            let changedFavorites = [];
+            if(favorites.some(item => item.name === currentPokemon.name)){
+                changedFavorites = favorites.filter((item) => item.name !== currentPokemon.name )//delete
+                localStorage.setItem('favorite', JSON.stringify(changedFavorites));
+                dispatch(loadFavorite(changedFavorites));
+            }           
+            else{
+                changedFavorites = [...favorites, currentPokemon];
+                dispatch(loadFavorite(changedFavorites));
+                localStorage.setItem('favorite', JSON.stringify(changedFavorites));
+            }
+        }
+        else{
+            dispatch(loadFavorite([currentPokemon]))
+            localStorage.setItem('favorite', JSON.stringify([currentPokemon]))
+        }
+    } 
+
+
+
+
     return(
         <div>
             <div className = {s.pocemonOutfit}>
                 <div className = {s.pocemonImg}>
-                    <img src="/img/pocemons/Bulbasaur.png" alt="Bulbasaur" />
+                    <img src={`https://pokeres.bastionbot.org/images/pokemon/${location.state.pokemon.id}.png`}  alt={`${location.state.pokemon.name}`}/>
                 </div>
                 <h1 className={s.pocemonName}>
-                    Bulbasaur
+                    {`${location.state.pokemon.name}`}
                 </h1>
             </div>
             <main>
+
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Base Experience </span> 
-                    <span className = {s.propertyValue}> 64 XP </span>
+                    <span className = {s.propertyValue}> {`${location.state.pokemon.base_experience} XP`} </span>
                 </p>
 
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Height </span> 
-                    <span className = {s.propertyValue}> 0.7 m </span>
+                    <span className = {s.propertyValue}> {`${location.state.pokemon.height} m`} </span>
                 </p>
 
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Weight </span> 
-                    <span className = {s.propertyValue}> 6.9 kg </span>
+                    <span className = {s.propertyValue}> {`${location.state.pokemon.weight} kg`} </span>
                 </p>
 
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Types </span> 
-                    <span className = {s.propertyValue}> Grass, Poison </span>
+                    <span className = {s.propertyValue}> {`${location.state.pokemon.types[0].type.name}`} </span>
                 </p>
 
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Abilities </span> 
-                    <span className = {s.propertyValue}> Overgrow,	Chlorophyll </span>
+                    <span className = {s.propertyValue}> {`${location.state.pokemon.abilities[0].ability.name}`} </span>
                 </p>
 
             </main>
             
-            <button className = {`${s.buttonAdd} ${s.button}`}>
-                {/* <img src="/img/icons/like.svg" alt="like"/>   */}
+            <button onClick={handleAddButton} className = {`${s.buttonAdd} ${s.button}`}>
+                {/* <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> */}
+                
+                {
+                    favorites.some(item => item.name === currentPokemon.name) ? null : <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> 
+                }
 
-                <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/>
-                <span>Add to Favorites</span>
+                <span>{
+                    favorites.some(item => item.name === currentPokemon.name) ? 'Remove from Favorites' : 'Add to Favorites'
+                }</span>
 
             </button>
 

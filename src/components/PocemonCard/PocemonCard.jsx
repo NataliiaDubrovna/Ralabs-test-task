@@ -1,15 +1,24 @@
 import React, {useEffect, useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import s from "./PocemonCard.module.css";
 import {getPocemonRequest} from '../../utils/requests';
 import Like from '../Like/Like';
+import { useDispatch, useSelector } from 'react-redux';
+import { changePath } from '../../redux/homeReducer'
+    
+    
 
 
 const PocemonCard = ({data}) => {
-
     const [pokemon, setPokemon] = useState(null) 
     const [loading, setLoading] = useState(true)
 
-    const {url} = data // get from priperty of pokemon url property // destructor
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const favorites = useSelector(state => state.homeReducer.favorite);
+
+    const {url} = data // get from property of pokemon url property // destructor
 
     const getPockemonData = async () => {
         const pokemonData = await getPocemonRequest(url)
@@ -21,12 +30,13 @@ const PocemonCard = ({data}) => {
         getPockemonData()
     },[])
 
+const heandleCardClick = () =>{
+    dispatch(changePath('/pokemonProfile'));
+    history.push({pathname:'/pokemonProfile',state: {pokemon:pokemon}})
+}
 
     return loading ? '...Loading' :
-        (<div className = {s.pocemonCard}>
-
-                {/* onclick == > "PocemonPrifile" */}
-            
+        (<div  onClick={heandleCardClick} className = {s.pocemonCard}>
            <div  className = {s.pocemonImg}>
                <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}  alt={`${pokemon.name}`}/>
             </div>
@@ -35,7 +45,9 @@ const PocemonCard = ({data}) => {
                    {pokemon.name}
                 </span>
                <div className = {s.pocemonLike}>
-                  <Like fill="none" stroke="#201D2A" width="16px" height="16px"/>
+                  <Like fill={
+                      favorites.some(item => item.name === pokemon.name) ? '#201D2A' : 'none'
+                  } stroke="#201D2A" width="16px" height="16px"/>
                </div>
            </div>
         </div> )
