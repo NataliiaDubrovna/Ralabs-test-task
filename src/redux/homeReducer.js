@@ -5,7 +5,7 @@ export const CHANGE_PATHNAME = "CHANGE_PATHNAME";
 const initialState = {
    pokemons: [],
    favorite : [],
-   pathName : "/"
+   pathName : "/Ralabs-test-task/"
 } 
 
 export const homeReducer = (state = initialState, action) => {

@@ -14,14 +14,14 @@ const PocemonProfile = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        dispatch(changePath('/pokemonProfile'));
+        dispatch(changePath('/Ralabs-test-task/pokemonProfile'));
     },[])
 
     const handleAddButton = () => {
         if(localStorage.getItem('favorite')){
             let changedFavorites = [];
             if(favorites.some(item => item.name === currentPokemon.name)){
-                changedFavorites = favorites.filter((item) => item.name !== currentPokemon.name )//delete
+                changedFavorites = favorites.filter((item) => item.name !== currentPokemon.name )
                 localStorage.setItem('favorite', JSON.stringify(changedFavorites));
                 dispatch(loadFavorite(changedFavorites));
             }           

@@ -12,7 +12,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link
+  Link
 } from "react-router-dom";
 
 
@@ -38,14 +38,13 @@ function App() {
         <Header/>
 
         <Switch>
-        <Route path='/favorites'>
+        <Route path='/Ralabs-test-task/favorites'>
            <Favorites />
         </Route>
-        <Route path="/pokemonProfile">
+        <Route path="/Ralabs-test-task/pokemonProfile">
               <PocemonProfile/>
         </Route>
-        <Route exact path="/">
-        {/* <Route exact path="/namerepos/"> */}
+        <Route exact path="/Ralabs-test-task/">
               <Main/>
         </Route>
         <Route path='*'> 

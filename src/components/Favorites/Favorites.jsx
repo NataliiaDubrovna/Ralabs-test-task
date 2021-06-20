@@ -11,7 +11,7 @@ const Favorites = () => {
     const filteredFavorites = pokemons.filter((item) => favorites.some((favorite) => favorite.name === item.name)) 
 
     useEffect(()=>{
-        dispatch(changePath('/favorites'));
+        dispatch(changePath('/Ralabs-test-task/favorites'));
     },[])
 
     return (

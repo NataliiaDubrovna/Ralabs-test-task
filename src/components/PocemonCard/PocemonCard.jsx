@@ -20,8 +20,8 @@ const PocemonCard = ({data}) => {
         setLoading(false)
     }
     const heandleCardClick = () =>{
-        dispatch(changePath('/pokemonProfile'));
-        history.push({pathname:'/pokemonProfile',state: {pokemon:pokemon}})
+        dispatch(changePath('/Ralabs-test-task/pokemonProfile'));
+        history.push({pathname:'/Ralabs-test-task/pokemonProfile',state: {pokemon:pokemon}})
     }
 
     useEffect(()=> {

@@ -16,13 +16,13 @@ const Header = () => {
 
     return(
         <header className = {s.header}>
-            <div onClick={() => handleBackClick('/')} className={s.arrow} style={{marginRight:"auto", display: pathname !== "/" ? 'block' : 'none' }}>
+            <div onClick={() => handleBackClick('/Ralabs-test-task/')} className={s.arrow} style={{marginRight:"auto", display: pathname !== "/Ralabs-test-task/" ? 'block' : 'none' }}>
                 <img src="/img/icons/arrow.svg" alt="arrow" />
             </div>
             <div className = {s.header_logo}>
                <img src="/img/icons/logoPocemon.svg" alt="Pocemon Logo" /> 
             </div>
-            <div onClick={() => handleBackClick('/favorites')} style={{display: pathname === "/" ? 'block' : 'none'}}  className={s.like}> {/* navigations to like list */}
+            <div onClick={() => handleBackClick('/Ralabs-test-task/favorites')} style={{display: pathname === "/Ralabs-test-task/" ? 'block' : 'none'}}  className={s.like}> 
                 <img src="/img/icons/like.svg" alt="like" />
             </div>
         </header>
