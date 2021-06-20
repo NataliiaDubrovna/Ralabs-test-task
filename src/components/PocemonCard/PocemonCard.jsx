@@ -6,34 +6,29 @@ import Like from '../Like/Like';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePath } from '../../redux/homeReducer'
     
-    
-
 
 const PocemonCard = ({data}) => {
     const [pokemon, setPokemon] = useState(null) 
     const [loading, setLoading] = useState(true)
-
     const history = useHistory();
     const dispatch = useDispatch();
-
     const favorites = useSelector(state => state.homeReducer.favorite);
-
-    const {url} = data // get from property of pokemon url property // destructor
-
+    const {url} = data;
     const getPockemonData = async () => {
         const pokemonData = await getPocemonRequest(url)
         setPokemon(pokemonData)
         setLoading(false)
+    }
+    const heandleCardClick = () =>{
+        dispatch(changePath('/pokemonProfile'));
+        history.push({pathname:'/pokemonProfile',state: {pokemon:pokemon}})
     }
 
     useEffect(()=> {
         getPockemonData()
     },[])
 
-const heandleCardClick = () =>{
-    dispatch(changePath('/pokemonProfile'));
-    history.push({pathname:'/pokemonProfile',state: {pokemon:pokemon}})
-}
+
 
     return loading ? '...Loading' :
         (<div  onClick={heandleCardClick} className = {s.pocemonCard}>
@@ -52,6 +47,5 @@ const heandleCardClick = () =>{
            </div>
         </div> )
 }
-
 
 export default PocemonCard

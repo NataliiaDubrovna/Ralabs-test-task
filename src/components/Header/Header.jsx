@@ -1,19 +1,14 @@
 import React from 'react'
 import s from './Header.module.css'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch  } from 'react-redux'
 import { changePath } from '../../redux/homeReducer'
 import { useHistory } from 'react-router-dom';
-
-
 
 const Header = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
     const pathname = useSelector(state => state.homeReducer.pathName);
-    console.log(pathname)
-
     const handleBackClick = (path) => {
             dispatch(changePath(path));
             history.push({pathname:path})

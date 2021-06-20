@@ -12,7 +12,6 @@ code {
     monospace;
 }
 
-
 *{
   padding: 0px;
   margin: 0px;
@@ -21,14 +20,17 @@ code {
 *,*::before,*::after{
   box-sizing:border-box;
 } 
-a{
+
+a,button{
   cursor: pointer;
 }
 body{
   height: 100%;
   -webkit-font-smoothing: antialiased;
 }
-input,button,textarea {font-family: inherit;}
+input,button,textarea {
+  font-family: inherit;
+}
 
 body._lock{ overflow: hidden;} 
 h1{ margin: 0;}

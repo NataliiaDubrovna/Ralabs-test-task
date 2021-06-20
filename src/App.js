@@ -12,7 +12,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 
 
@@ -31,9 +31,6 @@ function App() {
         dispatch(loadFavorite(favoritePokemon));
     }
   }, [])
-
-
-  
 
   return (
     <Router>

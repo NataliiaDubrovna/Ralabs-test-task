@@ -1,17 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import s from './Main.module.css'
 import PocemonCard from '../PocemonCard/PocemonCard'
-// import {getPocemonsRequest} from '../../utils/requests'
-// import {API} from '../../constants/api' 
 import { useSelector } from 'react-redux'
 
 const Main = () => {
     const pokemons = useSelector(state => state.homeReducer.pokemons);
-    const [loading, setLoading] = useState(false)
-
-    
-    console.log(pokemons);
-
+    const [loading, setLoading] = useState(false);
 
     return (
         <main className = {s.main}>
@@ -19,7 +13,5 @@ const Main = () => {
         </main>
     )
 }
-
-
 
 export default Main

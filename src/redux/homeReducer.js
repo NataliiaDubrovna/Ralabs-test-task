@@ -54,5 +54,4 @@ export const  changePath = (path) => {
     }
 };
 
-
 export default homeReducer;

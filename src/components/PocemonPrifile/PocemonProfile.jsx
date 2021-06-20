@@ -9,20 +9,13 @@ import { useSelector } from 'react-redux'
 
 const PocemonProfile = () => {
     const location = useLocation();
-    console.log(location);
-
     const currentPokemon = location.state.pokemon;
     const favorites = useSelector(state => state.homeReducer.favorite);
-    
-
-
     const dispatch = useDispatch();
 
     useEffect(()=>{
         dispatch(changePath('/pokemonProfile'));
     },[])
-
-    
 
     const handleAddButton = () => {
         if(localStorage.getItem('favorite')){
@@ -44,9 +37,6 @@ const PocemonProfile = () => {
         }
     } 
 
-
-
-
     return(
         <div>
             <div className = {s.pocemonOutfit}>
@@ -58,7 +48,6 @@ const PocemonProfile = () => {
                 </h1>
             </div>
             <main>
-
                 <p className = {s.pocemonProperty}>
                     <span className = {s.propertyName}> Base Experience </span> 
                     <span className = {s.propertyValue}> {`${location.state.pokemon.base_experience} XP`} </span>
@@ -83,27 +72,19 @@ const PocemonProfile = () => {
                     <span className = {s.propertyName}> Abilities </span> 
                     <span className = {s.propertyValue}> {`${location.state.pokemon.abilities[0].ability.name}`} </span>
                 </p>
-
             </main>
             
             <button onClick={handleAddButton} className = {`${s.buttonAdd} ${s.button}`}>
-                {/* <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> */}
-                
                 {
                     favorites.some(item => item.name === currentPokemon.name) ? null : <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> 
                 }
-
                 <span>{
                     favorites.some(item => item.name === currentPokemon.name) ? 'Remove from Favorites' : 'Add to Favorites'
                 }</span>
-
             </button>
-
             {/* <button className = {`${s.buttonRemove} ${s.button}`}>
                 <span>Remove from Favorites</span>   
             </button>     */}
-
-
         </div>
     )
 }
