@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import PocemonProfile from './components/PocemonPrifile/PocemonProfile';
+import PocemonProfile from './components/PocemonProfile/PocemonProfile';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { API } from './constants/api';

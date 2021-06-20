@@ -1,11 +1,9 @@
-import React from 'react'
+import React , { useEffect }  from 'react'
 import s from './PocemonProfile.module.css'
 import Like from '../Like/Like'
 import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { changePath, loadFavorite } from '../../redux/homeReducer'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch  } from 'react-redux'
 
 const PocemonProfile = () => {
     const location = useLocation();
@@ -74,17 +72,14 @@ const PocemonProfile = () => {
                 </p>
             </main>
             
-            <button onClick={handleAddButton} className = {`${s.buttonAdd} ${s.button}`}>
-                {
-                    favorites.some(item => item.name === currentPokemon.name) ? null : <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> 
-                }
-                <span>{
+            <button onClick={handleAddButton}  className = { `${s.button} ${(favorites.some(item => item.name === currentPokemon.name) ? s.buttonRemove : s.buttonAdd)}` }>
+                <span className={s.like}>{
+                     favorites.some(item => item.name === currentPokemon.name) ? null : <Like fill="none" stroke="#FFFFFF" width="20px" height="20px"/> 
+                    }</span>
+                <span className={s.buttonText}>{
                     favorites.some(item => item.name === currentPokemon.name) ? 'Remove from Favorites' : 'Add to Favorites'
                 }</span>
             </button>
-            {/* <button className = {`${s.buttonRemove} ${s.button}`}>
-                <span>Remove from Favorites</span>   
-            </button>     */}
         </div>
     )
 }
