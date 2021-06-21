@@ -8,22 +8,17 @@ import { API } from './constants/api';
 import {loadPokemons, loadFavorite} from './redux/homeReducer'
 import {getPocemonsRequest} from './utils/requests'
 import Favorites from './components/Favorites/Favorites'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 
 function App() {
+
   const dispatch = useDispatch();
   const getPokemonList = async () => {
-    const pokemonsList = await getPocemonsRequest(API.pocemonsList)  //get pocemonList from API
-    dispatch(loadPokemons(pokemonsList))// change state of variable pokemons , and now it contain obj of pokemons
-    // setLoading(false) // when we have data of pokemons preloading stoped
-}
+    const pokemonsList = await getPocemonsRequest(API.pocemonsList);
+    dispatch(loadPokemons(pokemonsList))
+  }
+
   useEffect(() => { 
     getPokemonList();
     if(localStorage.getItem('favorite')){
@@ -34,7 +29,7 @@ function App() {
 
   return (
     <Router>
-    <div>
+    <div >
         <Header/>
 
         <Switch>

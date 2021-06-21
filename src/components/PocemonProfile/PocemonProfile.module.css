@@ -3,61 +3,51 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding:24px;
 }
-
 .pocemonImg{
     width: 112px;
     height: 112px;
     overflow: hidden;
-    margin: 24px 0 20px;
+    margin-bottom: 20px;
 }
-
 .pocemonImg > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .pocemonName{
     text-transform: capitalize;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
     line-height: 24px;
-
-    margin-bottom: 24px;
 }
-
-main{
+.main{
     display: flex;
     flex-direction: column;
-    padding: 12px 24px;
     align-items: center;
     justify-content: center;
+    padding: 3px 24px;
 }
-
 .pocemonProperty{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: relative;
-    margin-top: 16px;
+    margin-top: 25px;
 }
-
-
 .pocemonProperty::before{
     position: absolute;
     content: '';
     width: 100%;
-
     height: 1px;
     left: 0px;
     bottom: -8px;
     background: #F2F2F2;
 }
-
 .propertyName{
     font-family: 'Montserrat',sans-serif;
     font-weight: 500;
@@ -65,17 +55,15 @@ main{
     line-height: 20px;
     color: #201D2A;
 }
-
 .propertyValue{
     text-transform: capitalize;
     font-family: 'Montserrat',sans-serif;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 20px;
     text-align: right;
     color: #201D2A;
 }
-
 
 .button{
     font-family: 'Montserrat',sans-serif;
@@ -122,7 +110,8 @@ main{
 .buttonText{
     min-width: 120px;
 }
-
-.buttonAdd > img {
+.like{
     margin-right: 12px;
+    width: 20px;
+    height: 20px;
 }

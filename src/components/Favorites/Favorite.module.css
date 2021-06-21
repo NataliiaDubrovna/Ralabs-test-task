@@ -1,7 +1,18 @@
-.favorite{
+.main{
     padding: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+}
+.favorite{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 16px;
+}
+.main > h1{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #201D2A;
+    margin-bottom: 20px;
 }

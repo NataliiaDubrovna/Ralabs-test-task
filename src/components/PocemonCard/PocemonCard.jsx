@@ -8,12 +8,15 @@ import { changePath } from '../../redux/homeReducer'
     
 
 const PocemonCard = ({data}) => {
-    const [pokemon, setPokemon] = useState(null) 
-    const [loading, setLoading] = useState(true)
+
+    const [pokemon, setPokemon] = useState(null); 
+    const [loading, setLoading] = useState(true);
+
     const history = useHistory();
     const dispatch = useDispatch();
     const favorites = useSelector(state => state.homeReducer.favorite);
     const {url} = data;
+    
     const getPockemonData = async () => {
         const pokemonData = await getPocemonRequest(url)
         setPokemon(pokemonData)

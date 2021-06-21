@@ -1,4 +1,4 @@
-export const getPocemonsRequest = async (url) => { //for getting all pokemons
+export const getPocemonsRequest = async (url) => { 
    return fetch(url)
     .then((response) => {
         return response.json();
@@ -8,13 +8,12 @@ export const getPocemonsRequest = async (url) => { //for getting all pokemons
     });
 }
 
-export const getPocemonRequest = async (url) => { //for getting data about exact pokemon
+export const getPocemonRequest = async (url) => {
     return fetch(url)
      .then((response) => {
          return response.json();
      })
      .then((data) => {
          return data;
-        //  return data.results; 
      });
  }

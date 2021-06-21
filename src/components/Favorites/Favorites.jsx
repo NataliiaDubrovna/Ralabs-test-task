@@ -15,9 +15,11 @@ const Favorites = () => {
     },[])
 
     return (
-        <main className = {s.favorite}>
+        <main className={`${s.main}`}>
             <h1>Favorites</h1>
-            {favorites.length ? filteredFavorites.map( (pokemon, index) => <PocemonCard data={pokemon} key={index}/>) : <p> no pocemons </p>}
+            <div  className={s.favorite}>
+                {(favorites.length) ? filteredFavorites.map( (pokemon, index) => <PocemonCard data={pokemon} key={index}/>) : <p>No favorites pocemon</p>}
+            </div>
         </main>
     )
 }

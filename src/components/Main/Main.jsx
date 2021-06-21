@@ -5,11 +5,10 @@ import { useSelector } from 'react-redux'
 
 const Main = () => {
     const pokemons = useSelector(state => state.homeReducer.pokemons);
-    const [loading, setLoading] = useState(false);
 
     return (
         <main className = {s.main}>
-            {pokemons.length ? pokemons.map( (pokemon,index) => <PocemonCard data={pokemon} key={index}/>) : null}
+            {pokemons.length ? pokemons.map( (pokemon, index) => <PocemonCard data={pokemon} key={index}/>) : null}
         </main>
     )
 }
